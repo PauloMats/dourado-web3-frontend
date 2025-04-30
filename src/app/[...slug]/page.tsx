@@ -4,8 +4,8 @@
 import { useParams } from 'next/navigation';
 import { useEffect, useState, Suspense, useCallback, useMemo } from 'react';
 import React from 'react';
-import { PageService } from '@/services/PageService';
-import DynamicComponent from '@/components/DynamicComponent/DynamicComponent';
+import { PageService } from '../../services/pageService';
+import DynamicComponent from '../../components/DynamicComponent/DynamicComponent';
 
 export default function Page() {
   const { slug } = useParams();
