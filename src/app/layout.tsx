@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import HeroSection from "./home-page/page";
+import Header from "../components/header/header";
+// import Footer from "@/components/footer/footer";
+import StyledComponentsRegistry from "./registry";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dourado Cash",
-  description: "Tecnologias para o universo da Web3",
+  title: "BDM Bank",
+  description: "Seu banco digital no universo da Web3",
 };
 
 export default function RootLayout({
@@ -24,11 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        <HeroSection />
+        <Header />
+        <main>
+          <StyledComponentsRegistry>
+          {children}
+          </StyledComponentsRegistry>
+        </main>
+       {/* <Footer /> */}
       </body>
     </html>
   );

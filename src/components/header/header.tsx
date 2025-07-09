@@ -1,122 +1,64 @@
 "use client";
+import React from "react";
+import DropdownIcon from "../DropdownIcon/DropdownIcon";
 
-import Link from 'next/link';
-import { Container } from './styles';
-import Navigation from '../navigation/navigation';
-import 'hamburgers/dist/hamburgers.css';
-import { useState, useEffect, useCallback, useRef } from 'react';
-import classNames from 'classnames';
-import Props from './typo';
-import { fetchNavigation } from '@/utils/index';
-import { MenuItem } from '@/services/navigationService';
-import { useSettings } from '@/context/settings';
-import { debounce } from "lodash";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
-const Header = ({ scrollPosition }: Props) => {
-  const [expanded, setExpand] = useState<boolean>(false);
-  const [nav, setNavigation] = useState<{ lateral?: MenuItem[], main?: MenuItem[] }>({});
-  const { settings } = useSettings();
-
-  const debouncedResize = useRef(
-    debounce(() => setExpand(false), 200)
-  ).current;
-
-  useEffect(() => {
-    if (scrollPosition) {
-      setExpand(false);
-    }
-  }, [scrollPosition]);
-
-  const loadNavigation = useCallback(async () => {
-    try {
-      const [main, lateral] = await Promise.all([
-        fetchNavigation('main'),
-        fetchNavigation('lateral'),
-      ]);
-
-      setNavigation({ main, lateral });
-    } catch (error) {
-      console.error('Error loading navigation:', error);
-    }
-  }, []); // Removed fetchNavigation as a dependency
-
-  useEffect(() => {
-    window.addEventListener('resize', debouncedResize);
-    loadNavigation();
-
-    return () => {
-      window.removeEventListener('resize', debouncedResize);
-    };
-  }, [debouncedResize, loadNavigation]); // debouncedResize and loadNavigation are stable
-
+const Header: React.FC = () => {
   return (
-    <Container
-      className={classNames("w-full fixed top-0 left-0 z-50 header", {
-        'scrolled': scrollPosition > 0,
-      })}
-    >
-      <div
-        className={classNames("container m-auto", {
-          'pt-3 pb-3': scrollPosition > 0,
-          'pt-6 pb-6': scrollPosition <= 0,
-        })}
-      >
-        <div className="flex justify-between items-center gap-6">
-          {settings?.custom_logo && (
-            <div className="logo">
-              <Link href="/">
-                <LazyLoadImage width={226} src={settings.custom_logo} alt={settings.blog_info.name} />
-              </Link>
-            </div>
-          )}
+    <header className="flex justify-between items-center px-9 py-0 w-full h-[77px] max-w-[1920px] max-sm:px-5 max-sm:py-0">
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e7eb16a079edb24c4e3a1b55606437b3c9a127e2?placeholderIfAbsent=true"
+        className="h-[34px] w-[335px]"
+        alt="Logo Dourado Cash DC"
+      />
 
-          {nav.main && (
-            <Navigation
-              isScrolling={scrollPosition}
-              className="hidden xl:flex flex-1 ps-20 pe-20"
-              ListClassName="gap-6 2xl:gap-20 items-center"
-              data={nav.main}
-            />
-          )}
-
-          <div className="ms-auto flex items-center justify-end gap-6">
-            {nav.lateral && (
-              <Navigation
-                ListClassName="gap-6 justify-center items-center"
-                data={nav.lateral}
-              />
-            )}
-
-            <span className="hamburger-wrapper block xl:hidden">
-              <button
-                className={classNames("hamburger hamburger--collapse", {
-                  'is-active': expanded,
-                })}
-                onClick={() => setExpand(!expanded)}
-                type="button"
-              >
-                <span className="hamburger-box">
-                  <span className="hamburger-inner" />
-                </span>
-              </button>
-            </span>
-          </div>
+      <nav className="flex gap-14 items-center max-md:gap-12 max-sm:hidden">
+        <div className="flex gap-2 items-center text-base font-medium text-zinc-50 text-opacity-90">
+          <span>Tecnologias</span>
+          <DropdownIcon />
         </div>
+
+        <div className="flex gap-2 items-center text-base font-medium text-zinc-50 text-opacity-90">
+          <span>Mercado BDM</span>
+          <DropdownIcon />
+        </div>
+
+        <div className="gap-2 text-base font-medium text-zinc-50 text-opacity-90">
+          Clientes e Empresas
+        </div>
+
+        <div className="flex gap-2 items-center text-base font-medium text-zinc-50 text-opacity-90">
+          <span>Sobre Nós</span>
+          <DropdownIcon />
+        </div>
+      </nav>
+
+      <div className="flex gap-2.5 items-center max-sm:hidden">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/2eab48fb02cb89d3c7a1d74752f195b78810301b?placeholderIfAbsent=true"
+          className="rounded-full h-[30px] w-[30px]"
+          alt="Brazil Flag"
+        />
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/5f09447ce68c4f3b558f1d6ab08c6b742ae2c2b6?placeholderIfAbsent=true"
+          className="rounded-full h-[30px] w-[30px]"
+          alt="English Flag"
+        />
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/6101540a464548bcd5e00ee703f4ba429fd1e3af?placeholderIfAbsent=true"
+          className="rounded-full h-[30px] w-[30px]"
+          alt="Spanish Flag"
+        />
       </div>
 
-      {nav.main && (
-        <Navigation
-          className={classNames({
-            'block': expanded,
-            'hidden': !expanded,
-          })}
-          mobile
-          ListClassName="gap-6"
-          data={nav.main}
-        />
-      )}
-    </Container>
+      <div className="flex gap-6 items-center max-sm:hidden">
+        <button className="text-base font-medium text-zinc-50 text-opacity-90">
+          Login
+        </button>
+        <button className="px-8 py-4 text-lg font-bold rounded text-zinc-900 bg-yellow-400 hover:bg-yellow-500 transition-colors">
+          Registro
+        </button>
+      </div>
+    </header>
   );
 };
 

@@ -16,19 +16,19 @@
     "@mui/icons-material": "^7.0.0",
     "@mui/material": "^7.0.0",
     "@mui/styled-engine-sc": "^7.0.0",
-    "@types/storybook__react": "^4.0.2",
     "@next/font": "^14.2.15",
+    "@types/storybook__react": "^4.0.2",
     "axios": "^1.9.0",
     "framer-motion": "^12.9.2",
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
-    "swiper": "^11.2.6",
-    "styled-components": "^6.1.16",
     "react-lazy-load-image-component": "^1.6.3",
     "react-router-dom": "^7.3.0",
-    "react-slick": "^0.30.3"
+    "react-slick": "^0.30.3",
+    "styled-components": "^6.1.19",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

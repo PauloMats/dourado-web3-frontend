@@ -1,118 +1,35 @@
-'use client';
+"use client";
+import React from "react";
 
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { Container, Placeholder, Text, Title } from './styles';
-import Button from '../button/button';
-import Props from './typo';
-import { MediaService } from '@/services/mediaService';
-
-const Hero = (props: Props) => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [media, setMedia] = useState({
-    backgroundimage: '',
-    video: ''
-  });
-
-  const handleVideoLoad = () => setIsVideoLoaded(true);
-
-  const fetchMedia = useCallback(async () => {
-    try {
-      const [background, video] = await Promise.all([
-        props.backgroundimage ? MediaService(props.backgroundimage) : Promise.resolve(null),
-        props.media ? MediaService(props.media) : Promise.resolve(null),
-      ]);
-
-      setMedia({
-        backgroundimage: background?.source_url || '',
-        video: video?.source_url || '',
-      });
-    } catch (error) {
-      console.error('Error fetching media:', error);
-    }
-  }, [props.backgroundimage, props.media]);
-
-  useEffect(() => {
-    fetchMedia();
-  }, [fetchMedia]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          videoRef.current?.load();
-        }
-      },
-      { threshold: 0.25 }
-    );
-
-    const currentVideoRef = videoRef.current;
-
-    if (currentVideoRef) {
-      observer.observe(currentVideoRef);
-    }
-
-    return () => {
-      if (currentVideoRef) {
-        observer.unobserve(currentVideoRef);
-      }
-    };
-  }, []);
-
+const HeroSection: React.FC = () => {
   return (
-    <Container
-      backgroundimage={media.backgroundimage}
-      className='w-full pb-[205px] pt-[310px] flex flex-col items-center justify-center relative overflow-hidden'
-    >
-      {!media.backgroundimage && media.video && (
-        <>
-          {!isVideoLoaded && props.placeholder && (
-            <Placeholder
-              loading='lazy'
-              src={props.placeholder}
-              alt={props.title}
-              className='opacity-25 block w-full h-full object-cover absolute top-0 left-0 z-0'
-            />
-          )}
-          <video
-            ref={videoRef}
-            src={media.video}
-            className={`opacity-25 block w-full h-full object-cover absolute top-0 left-0 z-0 ${isVideoLoaded ? 'loaded' : ''}`}
-            autoPlay
-            loop
-            muted
-            onLoadedData={handleVideoLoad}
-            preload="none"
-          />
-        </>
-      )}
-      <div className='container relative z-1 m-auto flex flex-col gap-16 items-center justify-center'>
-        {props.title && (
-          <Title
-            className='text-center text-3xl lg:text-6xl'
-            dangerouslySetInnerHTML={{ __html: props.title }}
-          />
-        )}
-        {props.text && (
-          <Text
-            className='text-center text-base lg:text-3xl'
-            dangerouslySetInnerHTML={{ __html: props.text }}
-          />
-        )}
-        {props.btnLabel && props.url && (
-          <Button
-            effect={props.btnAnimation}
-            radius={999}
-            tag='a'
-            href={props.url}
-            className={props.btnClass}
-          >
-            {props.btnLabel}
-          </Button>
-        )}
+    <section className="flex justify-between items-center px-44 py-0 w-full max-w-[1920px] max-md:px-20 max-sm:px-10 max-sm:flex-col max-sm:gap-10">
+      <div className="text-white">
+        <h1 className="text-9xl font-bold leading-[104px] max-md:text-8xl max-sm:text-6xl">
+          Tecnologias
+        </h1>
+        <h2 className="text-5xl font-medium leading-[104px] max-md:text-4xl max-sm:text-2xl">
+          para o universo
+        </h2>
+        <h2 className="text-8xl font-bold text-yellow-400 leading-[104px] max-md:text-7xl max-sm:text-5xl">
+          da Web3
+        </h2>
+        <p className="mt-5 text-xl text-yellow-400 max-md:text-lg max-sm:text-base">
+          Reinventando transações financeiras com blockchain privada e soluções
+          descentralizadas
+        </p>
+        <button className="mt-5 focus:outline-none" aria-label="Scroll down">
+          
+        </button>
       </div>
-    </Container>
+
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/c2d27f0d15bd72ca37d09b30a5c2f0d5deb52770?placeholderIfAbsent=true"
+        className="h-[722px] w-[1283px] max-md:h-auto max-md:w-[800px] max-sm:h-auto max-sm:w-[600px]"
+        alt="Smartphone"
+      />
+    </section>
   );
 };
 
-export default Hero;
+export default HeroSection;
