@@ -12,7 +12,6 @@ interface SolutionsCarouselProps {
 }
 
 const SolutionsCarouselSection = ({ title = "Soluções <strong>Dourado Cash</strong>" }: SolutionsCarouselProps) => {
-  // Configura o Embla para mostrar 3 slides e ter um gap
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: 'start',
     slidesToScroll: 1, 
@@ -60,25 +59,30 @@ const SolutionsCarouselSection = ({ title = "Soluções <strong>Dourado Cash</st
             </EmblaContainer>
           </EmblaViewport>
 
-          {/* Controles de Navegação */}
           <div className="flex justify-between items-center mt-8">
-            {/* Tracinhos / Pontos */}
             <div className="flex items-center gap-2">
               {slides.map((_, index) => (
                 <DotButton
                   key={index}
                   onClick={() => scrollTo(index)}
-                  className={`w-6 h-1 rounded-full ${index === selectedIndex ? 'bg-yellow-400' : 'bg-gray-700'}`}
+                  className={`w-6 h-1 rounded-full ${index === selectedIndex ? 'bg-yellow-400' : 'bg-gray-700'} cursor-pointer transition-transform duration-200 ease-in-out hover:scale-125`}
                 />
               ))}
             </div>
 
-            {/* Setas */}
             <div className="flex items-center gap-4">
-                <PrevNextButton onClick={scrollPrev} disabled={prevBtnDisabled} className="text-white disabled:text-gray-600">
+                <PrevNextButton 
+                    onClick={scrollPrev} 
+                    disabled={prevBtnDisabled} 
+                    className="text-white transition-transform duration-200 ease-in-out hover:scale-125 disabled:text-gray-600 disabled:transform-none disabled:cursor-not-allowed cursor-pointer"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                 </PrevNextButton>
-                <PrevNextButton onClick={scrollNext} disabled={nextBtnDisabled} className="text-white disabled:text-gray-600">
+                <PrevNextButton 
+                    onClick={scrollNext} 
+                    disabled={nextBtnDisabled} 
+                    className="text-white transition-transform duration-200 ease-in-out hover:scale-125 disabled:text-gray-600 disabled:transform-none disabled:cursor-not-allowed cursor-pointer"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </PrevNextButton>
             </div>
