@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BDM Bank",
-  description: "Seu banco digital no universo da Web3",
+  title: "Dourado Tech",
+  description: "Desenvolvendo tecnologias para o futuro da Web3",
 };
 
 export default function RootLayout({
