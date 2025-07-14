@@ -23,7 +23,12 @@ type DotButtonPropType = PropType & {
 export const DotButton = React.forwardRef<HTMLButtonElement, DotButtonPropType>((props, ref) => {
     const { selected, ...restProps } = props
     return (
-        <button type="button" {...restProps} />
+        <button
+            type="button"
+            aria-pressed={selected}
+            {...restProps}
+            ref={ref}
+        />
     )
 })
 DotButton.displayName = 'DotButton';
