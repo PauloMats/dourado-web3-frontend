@@ -19,6 +19,7 @@
     "@next/font": "^14.2.15",
     "@types/storybook__react": "^4.0.2",
     "axios": "^1.9.0",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.9.2",
     "next": "15.3.1",
     "react": "^19.0.0",
