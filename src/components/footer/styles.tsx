@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import { Submenu, List } from '../navigation/styles';
 
 export const Container = styled.footer`
-  ${Submenu} {
-    ${List} {
-      gap: .75rem;
-      margin-top: 1.75rem
+  a {
+    transition: color 0.2s;
+    &:hover {
+      color: #FFD700;
     }
+  }
+
+  svg {
+    stroke-width: 1.5;
   }
 `;

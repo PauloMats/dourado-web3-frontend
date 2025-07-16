@@ -1,69 +1,73 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from './styles';
-import Navigation from '../navigation/navigation';
-import SocialNetworks from '../socialNetworks/socialNetworks';
-import { fetchNavigation } from '@/utils/index';
-import { MenuItem } from '@/services/navigationService';
-import { useEffect, useState, useCallback } from 'react';
-import { useSettings } from '@/context/settings';
+import { useState } from 'react';
+import {
+  Instagram,
+  Linkedin,
+  Youtube,
+  Twitter,
+} from 'lucide-react';
 
 export default function Footer() {
-  const [menu, setNavigation] = useState<MenuItem[] | null>(null);
-  const { settings } = useSettings();
-  const year = new Date().getFullYear();
-
-  const loadNavigation = useCallback(async () => {
-    try {
-      const [footerMenu] = await Promise.all([fetchNavigation('footer')]);
-      if (footerMenu) setNavigation(footerMenu);
-    } catch (error) {
-      console.error('Error loading navigation:', error);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadNavigation();
-  }, [loadNavigation]);
-
-  if (!settings || !menu) return null;
+  const [year] = useState(new Date().getFullYear());
 
   return (
-    <Container className="bg-white py-5 rounded-t-2xl">
-      <div className="container m-auto px-5">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 py-5">
-          <div className='flex flex-col gap-4 2xl:flex-row 2xl:gap-[9rem]'>
+    <Container className="bg-[#EAB317] text-black py-10 rounded-t-2xl">
+      <div className="container mx-auto px-6 flex flex-col md:flex-row md:justify-between md:items-start gap-10">
 
-            <Link href="/">
-              <Image
-                src={settings.custom_logo}
-                alt={settings.blog_info.name}
-                width={160}
-                height={40}
-                className="h-auto"
-                priority
-              />
-            </Link>
+        {/* GRUPO 1: Esquerda (Logo e Copyright) */}
+        <div className="flex flex-col justify-between h-full">
+          <Link href="/">
+            <Image
+              src={"/img/Dourado-logo-footer.png"}
+              alt="Dourado Logo"
+              width={200}
+              height={70}
+              className="h-auto"
+              priority
+            />
+          </Link>
+          <div className="text-sm text-black mt-10 md:mt-16">
+            ©{year} Dourado Cash. Todos os direitos Reservados | Desenvolvido por Dourado.cash
+          </div>
+        </div>
 
-            <div className="flex flex-col gap-4 md:max-w-[300px]">
-              <SocialNetworks className="text-xl" data={settings.social_networks} />
-              <p className="text-sm lg:text-md text-gray-700 leading-normal mt-2">
-                {`© ${year} ${settings.blog_info.name}. Todos os direitos reservados.`}
-                <br />
-                Desenvolvido por Dourado.cash
-              </p>
+        {/* GRUPO 2: Centro (Redes Sociais) */}
+        <div className="flex justify-center">
+           <div className="flex gap-4 text-black text-2xl">
+              <Link href="#" aria-label="X (Twitter)"><Twitter/></Link>
+              <Link href="#" aria-label="Instagram"><Instagram /></Link>
+              <Link href="#" aria-label="YouTube"><Youtube /></Link>
+              <Link href="#" aria-label="LinkedIn"><Linkedin /></Link>
             </div>
+        </div>
+
+        {/* GRUPO 3: Direita (As duas listas de links) */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16">
+          <div>
+            <h4 className="font-bold mb-4">Links Rápidos</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="https://dourado.cash/copyright" className="hover:underline">CopyRight</Link></li>
+              <li><Link href="https://dourado.cash/privacidade" className="hover:underline">Privacidade</Link></li>
+              <li><Link href="https://dourado.cash/tarifaselimites" className="hover:underline">Tarifas e Limites</Link></li>
+              <li><Link href="#" className="hover:underline">Termos de Uso</Link></li>
+            </ul>
           </div>
 
-          <Navigation
-            defaultexpanded="on"
-            className="flex-1"
-            ListClassName="gap-8 md:gap-4 xl:gap-[8rem] flex-col md:flex-row md:justify-end"
-            data={menu}
-          />
+          <div>
+            <h4 className="font-bold mb-4">Links Úteis</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="#" className="hover:underline">MANUAL DE COMPLIACE</Link></li>
+              <li><Link href="#" className="hover:underline">Home</Link></li>
+              <li><Link href="#" className="hover:underline">Cadastrar Empresa</Link></li>
+              <li><Link href="#" className="hover:underline">Entre em Contato</Link></li>
+            </ul>
+          </div>
         </div>
+        
       </div>
     </Container>
   );

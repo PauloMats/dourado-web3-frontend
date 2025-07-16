@@ -4,7 +4,6 @@ type PropType = PropsWithChildren<
   React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 >;
 
-// Botão de "Anterior" e "Próximo"
 export const PrevNextButton = React.forwardRef<HTMLButtonElement, PropType>((props, ref) => {
   const { children, ...restProps } = props;
   return (
