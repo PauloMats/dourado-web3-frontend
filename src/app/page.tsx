@@ -5,6 +5,7 @@ import TecnologiaDouradoSection from "../components/TecnologiasDourado/tecnologi
 import FeaturesSection from "../components/FeaturesSection";
 import SolutionsCarouselSection from "../components/SolutionsCarouselSection/index";
 import NewsletterSection from "../components/NewsletterSection/index";
+import FaqSection from "../components/FaqSection/index";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <FeaturesSection />
       <SolutionsCarouselSection />
       <NewsletterSection />
+      <FaqSection />
     </>
   );
 }
