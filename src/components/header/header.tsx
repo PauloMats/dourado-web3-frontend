@@ -1,63 +1,122 @@
-"use client";
-import React from "react";
+'use client';
+import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import DropdownIcon from "../DropdownIcon/DropdownIcon";
 
 const Header: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Fecha o dropdown do desktop se clicar fora dele
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDesktopDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Fecha o menu principal quando um link do dropdown mobile é clicado
+  const handleMobileLinkClick = () => {
+    setMenuOpen(false);
+    setMobileDropdownOpen(false);
+  };
+
   return (
-    <header className="flex justify-between items-center px-9 py-0 w-full h-[77px] max-w-[1920px] max-sm:px-5 max-sm:py-0">
-      <img
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e7eb16a079edb24c4e3a1b55606437b3c9a127e2?placeholderIfAbsent=true"
-        className="h-[34px] w-[335px]"
-        alt="Logo Dourado Cash DC"
-      />
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/25 backdrop-blur-md">
+      {/* NAVBAR PRINCIPAL */}
+      <div className="flex justify-between items-center px-6 py-3 max-w-[1920px] mx-auto h-[77px]">
+        {/* Logo */}
+            <Image
+              src="/img/dourado-cash-logo.png"
+              alt="Logo Dourado Cash"
+              width={500}
+              height={100}
+              className="h-[20px] w-auto cursor-pointer"
+              priority
+            />
 
-      <nav className="flex gap-14 items-center max-md:gap-12 max-sm:hidden">
-        <div className="flex gap-2 items-center text-base font-medium text-zinc-50 text-opacity-90">
-          <span>Tecnologias</span>
-          <DropdownIcon />
+        {/* Menu desktop */}
+        <nav className="hidden lg:flex gap-14 items-center">
+          {/* Dropdown de Produtos */}
+           <Link href="/" className="text-base font-medium text-white hover:text-yellow-400">Tecnologias</Link>
+          <div className="relative" ref={dropdownRef}>
+            <div 
+              className="flex gap-2 text-base font-medium text-white cursor-pointer items-center"
+              onClick={() => setDesktopDropdownOpen(!desktopDropdownOpen)}
+            >
+              <span>Produtos</span>
+              <div className={`transition-transform duration-200 ${desktopDropdownOpen ? 'rotate-180' : ''}`}>
+                <DropdownIcon />
+              </div>
+            </div>
+             
+            {desktopDropdownOpen && (
+              <div className="absolute top-full mt-4 w-48 border border-gray-700 rounded-md shadow-lg py-2">
+                <Link href="/pos" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>Mercado BDM</Link>
+                <Link href="/cambio" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM POS</Link>
+                <Link href="/cartao" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM PAY</Link>
+                <Link href="/credito-pj" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM DIGITAL</Link>
+              </div>
+            )}
+          </div>
+          <Link href="/" className="text-base font-medium text-white hover:text-yellow-400">Cliente e Empresas</Link>
+          <Link href="/" className="text-base font-medium text-white hover:text-yellow-400" target="_blank" rel="noopener noreferrer">Sobre Nós</Link>
+        </nav>
+
+        {/* Ações - Desktop */}
+        <div className="hidden lg:flex gap-6 items-center">
+          <button className="text-base font-medium text-white">Login</button>
+          <button className="px-6 py-3 text-lg font-bold rounded bg-yellow-400 text-black hover:bg-yellow-500">
+            Abrir conta
+          </button>
         </div>
 
-        <div className="flex gap-2 items-center text-base font-medium text-zinc-50 text-opacity-90">
-          <span>Mercado BDM</span>
-          <DropdownIcon />
-        </div>
-
-        <div className="gap-2 text-base font-medium text-zinc-50 text-opacity-90">
-          Clientes e Empresas
-        </div>
-
-        <div className="flex gap-2 items-center text-base font-medium text-zinc-50 text-opacity-90">
-          <span>Sobre Nós</span>
-          <DropdownIcon />
-        </div>
-      </nav>
-
-      <div className="flex gap-2.5 items-center max-sm:hidden">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/2eab48fb02cb89d3c7a1d74752f195b78810301b?placeholderIfAbsent=true"
-          className="rounded-full h-[30px] w-[30px]"
-          alt="Brazil Flag"
-        />
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/5f09447ce68c4f3b558f1d6ab08c6b742ae2c2b6?placeholderIfAbsent=true"
-          className="rounded-full h-[30px] w-[30px]"
-          alt="English Flag"
-        />
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/6101540a464548bcd5e00ee703f4ba429fd1e3af?placeholderIfAbsent=true"
-          className="rounded-full h-[30px] w-[30px]"
-          alt="Spanish Flag"
-        />
+        {/* Botão menu mobile */}
+        <button
+          className="lg:hidden flex flex-col justify-center items-center h-8 w-8"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'w-6 rotate-45 translate-y-[5px]' : 'w-6 mb-1.5'}`} />
+          <span className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : 'w-4'}`} />
+          <span className={`h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'w-6 -rotate-45 -translate-y-[5px]' : 'w-5 mt-1.5'}`} />
+        </button>
       </div>
 
-      <div className="flex gap-6 items-center max-sm:hidden">
-        <button className="text-base font-medium text-zinc-50 text-opacity-90">
-          Login
-        </button>
-        <button className="px-8 py-4 text-lg font-bold rounded text-zinc-900 bg-yellow-400 hover:bg-yellow-500 transition-colors">
-          Registro
-        </button>
-      </div>
+      {/* Dropdown menu mobile */}
+      {menuOpen && (
+        <div className="lg:hidden px-6 pb-6 space-y-4">
+          <nav className="flex flex-col gap-2 text-white">
+            <div 
+              className="flex justify-between items-center py-2 cursor-pointer"
+              onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+            >
+              <span>Produtos</span>
+              <div className={`transition-transform duration-200 ${mobileDropdownOpen ? 'rotate-180' : ''}`}>
+                <DropdownIcon />
+              </div>
+            </div>
+            {mobileDropdownOpen && (
+               <div className="flex flex-col pl-4 border-l-2 border-gray-700">
+                  <Link href="/pos" className="py-2" onClick={handleMobileLinkClick}>POS</Link>
+                  <Link href="/cambio" className="py-2" onClick={handleMobileLinkClick}>CÂMBIO</Link>
+                  <Link href="/cartao" className="py-2" onClick={handleMobileLinkClick}>CARTÃO</Link>
+                  <Link href="/credito-pj" className="py-2" onClick={handleMobileLinkClick}>CRÉDITO PJ</Link>
+               </div>
+            )}
+            <Link href="/app-page" className="py-2 border-t border-gray-700 mt-2" onClick={() => setMenuOpen(false)}>App</Link>
+            <Link href="/contato" className="py-2" onClick={() => setMenuOpen(false)}>Contato</Link>
+            <Link href="https://bdmbank.zendesk.com/hc/pt-br/requests/new" target="_blank" rel="noopener noreferrer" className="py-2" onClick={() => setMenuOpen(false)}>Ajuda</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
