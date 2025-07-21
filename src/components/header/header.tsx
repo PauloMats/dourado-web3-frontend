@@ -34,19 +34,21 @@ const Header: React.FC = () => {
       {/* NAVBAR PRINCIPAL */}
       <div className="flex justify-between items-center px-6 py-3 max-w-[1920px] mx-auto h-[77px]">
         {/* Logo */}
-            <Image
-              src="/img/dourado-cash-logo.png"
-              alt="Logo Dourado Cash"
-              width={500}
-              height={100}
-              className="h-[20px] w-auto cursor-pointer"
-              priority
-            />
+            <Link href="/">
+              <Image
+                src="/img/dourado-cash-logo.png"
+                alt="Logo Dourado Cash"
+                width={500}
+                height={100}
+                className="h-[20px] w-auto cursor-pointer"
+                priority
+              />
+            </Link>
 
         {/* Menu desktop */}
         <nav className="hidden lg:flex gap-14 items-center">
           {/* Dropdown de Produtos */}
-           <Link href="/" className="text-base font-medium text-white hover:text-yellow-400">Tecnologias</Link>
+           <Link href="/tecnologias" className="text-base font-medium text-white hover:text-yellow-400">Tecnologias</Link>
           <div className="relative" ref={dropdownRef}>
             <div 
               className="flex gap-2 text-base font-medium text-white cursor-pointer items-center"
