@@ -9,7 +9,7 @@ const technologyPageData = {
       buttonText: "Ver Tecnologias"
     },
     imageData: {
-      src: "/img/tech-hero-visual.png",
+      src: "/img/Technology-page-1.png",
       alt: "Demonstração da plataforma Dourado Cash em um laptop e celular"
     }
   }

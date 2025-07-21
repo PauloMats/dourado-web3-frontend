@@ -3,7 +3,6 @@
 import React from 'react';
 import { CardContainer, CardTitle, CardText, CardButton } from './styles';
 
-// Tipagem para as props, pensando no CMS
 interface HeroCardProps {
   title: string;
   text: string;
