@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { SectionWrapper } from './styles';
 import HeroCard from './HeroCard';
 
-// Tipagem para as props da seção inteira
 interface TechnologyHeroProps {
   cardData: {
     title: string;
@@ -16,27 +15,30 @@ interface TechnologyHeroProps {
     src: string;
     alt: string;
   };
+  imagePosition?: 'left' | 'right'; 
+  withBackground?: boolean; 
 }
 
-const TechnologyHeroSection = ({ cardData, imageData }: TechnologyHeroProps) => {
+const TechnologyHeroSection = ({ 
+  cardData, 
+  imageData,
+  imagePosition = 'right',
+  withBackground = false 
+}: TechnologyHeroProps) => {
   return (
-    <SectionWrapper>
+    <SectionWrapper $withBackground={withBackground}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
-          {/* Coluna da Esquerda: O Card com o conteúdo */}
-          <div>
+          <div className={imagePosition === 'left' ? 'md:order-last' : ''}>
             <HeroCard 
               title={cardData.title}
               text={cardData.text}
               buttonText={cardData.buttonText}
-              // Você pode adicionar uma função de clique aqui se necessário
-              // onButtonClick={() => console.log('Botão clicado!')}
             />
           </div>
 
-          {/* Coluna da Direita: A Imagem */}
-          <div className="flex justify-center">
+          <div className={`flex justify-center ${imagePosition === 'left' ? 'md:order-first' : ''}`}>
             <Image
               src={imageData.src}
               alt={imageData.alt}

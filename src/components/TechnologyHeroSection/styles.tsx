@@ -2,17 +2,22 @@ import styled from 'styled-components';
 import { pxToRem } from '../../utils/utils'; 
 import { colors } from '../../assets/scss/colors';
 
-// Wrapper para a seção inteira com a imagem de fundo
-export const SectionWrapper = styled.section`
-  // TODO: Substitua pelo caminho do seu background de rede
-  background-image: url('/img/network-background.png');
+interface SectionWrapperProps {
+  $withBackground?: boolean;
+}
+
+export const SectionWrapper = styled.section<SectionWrapperProps>`
+  /* Estilos que sempre se aplicam */
   background-color: #111;
   background-size: cover;
   background-position: center;
-  padding: 8rem 0; // py-32
+  padding: 8rem 0;
+
+  /* Estilo condicional: só aplica a imagem se a prop for verdadeira */
+  background-image: ${({ $withBackground }) => 
+    $withBackground ? "url('/img/background-dourado1.png')" : 'none'};
 `;
 
-// O container do Card
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
