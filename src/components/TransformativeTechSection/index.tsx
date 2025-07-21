@@ -24,8 +24,8 @@ const TransformativeTechSection = ({ title, text, linkText, linkHref, imageSrc, 
             <Image
               src={imageSrc}
               alt={imageAlt}
-              width={500}
-              height={500}
+              width={1000}
+              height={1000}
               quality={100}
             />
           </div>
