@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import { pxToRem } from '../../utils/utils';
 
 export const SectionWrapper = styled.section`
-  // TODO: Substitua pelo seu background de moedas
-  background-image: url('/img/gold-coins-background.png');
+  background-image: url('/img/bg-coins.png');
   background-color: #0A0A0A;
   background-size: cover;
   background-position: center bottom;
-  padding: 8rem 0;
+  padding: 12rem 0;
   position: relative;
   overflow: hidden;
 
@@ -18,7 +17,7 @@ export const SectionWrapper = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 00%, rgba(0,0,0,0.4) 10%);
   }
 `;
 
