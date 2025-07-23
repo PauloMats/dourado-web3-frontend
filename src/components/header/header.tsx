@@ -62,10 +62,10 @@ const Header: React.FC = () => {
              
             {desktopDropdownOpen && (
               <div className="absolute top-full mt-4 w-48 border border-gray-700 rounded-md shadow-lg py-2">
-                <Link href="/pos" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>Mercado BDM</Link>
-                <Link href="/cambio" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM POS</Link>
-                <Link href="/cartao" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM PAY</Link>
-                <Link href="/credito-pj" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM DIGITAL</Link>
+                <Link href="/mercadobdm" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>Mercado BDM</Link>
+                <Link href="/bdmpos" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM POS</Link>
+                <Link href="/bdmpay" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM PAY</Link>
+                <Link href="/bdmdigital" className="block px-4 py-2 text-sm text-white hover:bg-gray-800" onClick={() => setDesktopDropdownOpen(false)}>BDM DIGITAL</Link>
               </div>
             )}
           </div>

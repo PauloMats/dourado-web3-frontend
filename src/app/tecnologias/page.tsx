@@ -22,7 +22,7 @@ const technologyPageData = {
   },
   marketplace: {
       title: "Mercado BDM",
-      imageSrc: "/img/mercado-bdm-laptop.png",
+      imageSrc: "/img/Technology-page-5.png",
       imageAlt: "Interface do Mercado BDM em um laptop",
       buttonText: "Explore o Mercado BDM",
       buttonHref: "#"
