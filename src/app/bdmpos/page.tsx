@@ -1,4 +1,6 @@
+import { posFeaturesData } from '@/components/PosFeaturesSection/posFeaturesData';
 import TechnologyHeroSection from '@/components/TechnologyHeroSection';
+import PosFeaturesSection from '@/components/PosFeaturesSection';
 
 export default function BdmPosPage() {
     return (
@@ -12,6 +14,7 @@ export default function BdmPosPage() {
         imageData={{ src: "/img/pos-page1.png", alt: "Blockchain Dourado Cash" }}
         imagePosition="left"
       />
+      <PosFeaturesSection data={posFeaturesData} />
         </main>
     );
 }
