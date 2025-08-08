@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const FeaturesSectionWrapper = styled.section`
-  // TODO: Substitua pelo caminho do seu background
-  background-image: url('/img/dark-background.jpg');
+  background-image: url('/img/background-space.png');
   background-size: cover;
   background-position: center;
   position: relative;

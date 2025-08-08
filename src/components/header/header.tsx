@@ -10,7 +10,6 @@ const Header: React.FC = () => {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Fecha o dropdown do desktop se clicar fora dele
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -23,7 +22,6 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  // Fecha o menu principal quando um link do dropdown mobile é clicado
   const handleMobileLinkClick = () => {
     setMenuOpen(false);
     setMobileDropdownOpen(false);
@@ -75,9 +73,8 @@ const Header: React.FC = () => {
 
         {/* Ações - Desktop */}
         <div className="hidden lg:flex gap-6 items-center">
-          <button className="text-base font-medium text-white">Login</button>
           <button className="px-6 py-3 text-lg font-bold rounded bg-yellow-400 text-black hover:bg-yellow-500">
-            Abrir conta
+            Entre em Contato
           </button>
         </div>
 
@@ -107,15 +104,15 @@ const Header: React.FC = () => {
             </div>
             {mobileDropdownOpen && (
                <div className="flex flex-col pl-4 border-l-2 border-gray-700">
-                  <Link href="/pos" className="py-2" onClick={handleMobileLinkClick}>POS</Link>
-                  <Link href="/cambio" className="py-2" onClick={handleMobileLinkClick}>CÂMBIO</Link>
-                  <Link href="/cartao" className="py-2" onClick={handleMobileLinkClick}>CARTÃO</Link>
-                  <Link href="/credito-pj" className="py-2" onClick={handleMobileLinkClick}>CRÉDITO PJ</Link>
+                  <Link href="/mercadobdm" className="py-2" onClick={handleMobileLinkClick}>Mercado BDM</Link>
+                  <Link href="/bdmpos" className="py-2" onClick={handleMobileLinkClick}>BDM POS</Link>
+                  <Link href="/bdmpay" className="py-2" onClick={handleMobileLinkClick}>BDM PAY</Link>
+                  <Link href="/bdmdigital" className="py-2" onClick={handleMobileLinkClick}>BDM DIGITAL</Link>
                </div>
             )}
-            <Link href="/app-page" className="py-2 border-t border-gray-700 mt-2" onClick={() => setMenuOpen(false)}>App</Link>
+            <Link href="/tecnologias" className="py-2 border-t border-gray-700 mt-2" onClick={() => setMenuOpen(false)}>Tecnologias</Link>
             <Link href="/contato" className="py-2" onClick={() => setMenuOpen(false)}>Contato</Link>
-            <Link href="https://bdmbank.zendesk.com/hc/pt-br/requests/new" target="_blank" rel="noopener noreferrer" className="py-2" onClick={() => setMenuOpen(false)}>Ajuda</Link>
+            <Link href="/" className="py-2" onClick={() => setMenuOpen(false)}>Clientes e Empresas</Link>
           </nav>
         </div>
       )}

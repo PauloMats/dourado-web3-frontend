@@ -23,10 +23,9 @@ export const SectionWrapper = styled.section`
 
 export const TitleImageWrapper = styled.div`
   position: relative;
-  width: fit-content; // Ajusta a largura ao conteúdo da imagem
+  width: fit-content;
 `;
 
-// Itens de Estatística
 export const StatValue = styled.p`
   font-size: ${pxToRem(48)};
   font-weight: bold;
@@ -42,6 +41,6 @@ export const StatTitle = styled.h4`
 
 export const StatDescription = styled.p`
   font-size: ${pxToRem(14)};
-  color: #A0A0A0; // Um cinza para o texto de suporte
+  color: #A0A0A0; 
   margin-top: 0.5rem;
 `;

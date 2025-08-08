@@ -40,7 +40,7 @@ const TecnologiaDouradoSection = () => {
           {/* Coluna da Direita: Imagem */}
           <div className="flex justify-center items-center">
             <Image
-              src="/img/blockchain-network.png"
+              src="/img/web3-nodes.png"
               alt="Rede Blockchain Dourado Cash"
               width={500}
               height={500}
