@@ -3,6 +3,8 @@ import TechnologyHeroSection from '@/components/TechnologyHeroSection';
 import PosFeaturesSection from '@/components/PosFeaturesSection';
 import MobileFeaturesSection from '@/components/MobileFeaturesSection';
 import { mobileFeaturesData } from '@/components/MobileFeaturesSection/mobileFeaturesData';
+import NfcFeaturesSection from '@/components/NfcFeaturesSection';
+import { nfcFeaturesData } from '@/components/NfcFeaturesSection/nfcFeaturesData';
 
 export default function BdmPosPage() {
     return (
@@ -18,6 +20,7 @@ export default function BdmPosPage() {
       />
       <PosFeaturesSection data={posFeaturesData} />
       <MobileFeaturesSection data={mobileFeaturesData} />
+      <NfcFeaturesSection data={nfcFeaturesData} />
       </main>
     );
 }
