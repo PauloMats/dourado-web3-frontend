@@ -1,6 +1,8 @@
 import { posFeaturesData } from '@/components/PosFeaturesSection/posFeaturesData';
 import TechnologyHeroSection from '@/components/TechnologyHeroSection';
 import PosFeaturesSection from '@/components/PosFeaturesSection';
+import MobileFeaturesSection from '@/components/MobileFeaturesSection';
+import { mobileFeaturesData } from '@/components/MobileFeaturesSection/mobileFeaturesData';
 
 export default function BdmPosPage() {
     return (
@@ -15,6 +17,7 @@ export default function BdmPosPage() {
         imagePosition="left"
       />
       <PosFeaturesSection data={posFeaturesData} />
-        </main>
+      <MobileFeaturesSection data={mobileFeaturesData} />
+      </main>
     );
 }
