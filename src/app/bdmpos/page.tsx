@@ -5,6 +5,8 @@ import MobileFeaturesSection from '@/components/MobileFeaturesSection';
 import { mobileFeaturesData } from '@/components/MobileFeaturesSection/mobileFeaturesData';
 import NfcFeaturesSection from '@/components/NfcFeaturesSection';
 import { nfcFeaturesData } from '@/components/NfcFeaturesSection/nfcFeaturesData';
+import { payFeatureData } from '@/components/PayFeatureSection/payFeatureData';
+import PayFeatureSection from '@/components/PayFeatureSection';
 
 export default function BdmPosPage() {
     return (
@@ -21,6 +23,7 @@ export default function BdmPosPage() {
       <PosFeaturesSection data={posFeaturesData} />
       <MobileFeaturesSection data={mobileFeaturesData} />
       <NfcFeaturesSection data={nfcFeaturesData} />
+      <PayFeatureSection data={payFeatureData} />
       </main>
     );
 }
