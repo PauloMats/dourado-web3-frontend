@@ -67,8 +67,8 @@ const Header: React.FC = () => {
               </div>
             )}
           </div>
-          <Link href="/" className="text-base font-medium text-white hover:text-yellow-400">Cliente e Empresas</Link>
-          <Link href="/" className="text-base font-medium text-white hover:text-yellow-400" target="_blank" rel="noopener noreferrer">Sobre Nós</Link>
+          <Link href="/cliente-e-empresas" className="text-base font-medium text-white hover:text-yellow-400">Cliente e Empresas</Link>
+          <Link href="/about-us" className="text-base font-medium text-white hover:text-yellow-400">Sobre Nós</Link>
         </nav>
 
         {/* Ações - Desktop */}
@@ -111,8 +111,8 @@ const Header: React.FC = () => {
                </div>
             )}
             <Link href="/tecnologias" className="py-2 border-t border-gray-700 mt-2" onClick={() => setMenuOpen(false)}>Tecnologias</Link>
-            <Link href="/contato" className="py-2" onClick={() => setMenuOpen(false)}>Contato</Link>
-            <Link href="/" className="py-2" onClick={() => setMenuOpen(false)}>Clientes e Empresas</Link>
+            <Link href="/about-us" className="py-2" onClick={() => setMenuOpen(false)}>Sobre Nós</Link>
+            <Link href="/cliente-e-empresas" className="py-2" onClick={() => setMenuOpen(false)}>Clientes e Empresas</Link>
           </nav>
         </div>
       )}
