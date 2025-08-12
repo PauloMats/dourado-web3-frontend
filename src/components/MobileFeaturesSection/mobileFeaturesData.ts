@@ -24,3 +24,30 @@ export const mobileFeaturesData = {
     },
   ],
 };
+
+export const mobileFeaturesPay = {
+  title: "Recursos Móveis",
+
+  features: [
+    {
+      imageSrc: '/img/mobile-feature-1.png',
+      imageAlt: 'Tela de pagamento por QR Code',
+      description: 'Pagamento por QR Code',
+    },
+    {
+      imageSrc: '/img/mobile-feature-2.png',
+      imageAlt: 'Tela de gestão de vendas',
+      description: 'Gestão de Vendas',
+    },
+    {
+      imageSrc: '/img/mobile-feature-3.png',
+      imageAlt: 'Tela de relatórios em tempo real',
+      description: 'Relatórios em Tempo Real',
+    },
+    {
+      imageSrc: '/img/mobile-feature-4.png',
+      imageAlt: 'Tela de integração com carteiras digitais',
+      description: 'Integração com Carteiras Digitais',
+    },
+  ],
+};
