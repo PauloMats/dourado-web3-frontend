@@ -3,22 +3,22 @@ export const nfcFeaturesData = {
 
   leftPhones: [
     {
-      imageSrc: '/img/nfc-mobile-1.png',
+      imageSrc: '/img/bdm-pos-img5.png',
       imageAlt: 'Tela de consulta de saldo do BDM POS',
     },
     {
-      imageSrc: '/img/nfc-mobile-2.png',
+      imageSrc: '/img/bdm-pos-img6.png',
       imageAlt: 'Tela de consulta por aproximação do BDM POS',
     },
   ],
   
   rightPhones: [
     {
-      imageSrc: '/img/nfc-mobile-3.png',
+      imageSrc: '/img/bdm-pos-img7.png',
       imageAlt: 'Tela de recarga de cartão do BDM POS',
     },
     {
-      imageSrc: '/img/nfc-mobile-4.png',
+      imageSrc: '/img/bdm-pos-img8.png',
       imageAlt: 'Tela de confirmação de recarga do BDM POS',
     },
   ],

@@ -53,7 +53,7 @@ export default function TecnologiasPage() {
           text: "Encontre e seja encontrado: negócios locais e globais que aceitam BDM Digital em tempo real. Cadastre sua empresa e seja encontrado no mapa.",
           buttonText: "Saiba mais"
         }}
-        imageData={{ src: "/img/blockchain-visual.png", alt: "Blockchain Dourado Cash" }}
+        imageData={{ src: "/img/bdmap-img.png", alt: "Blockchain Dourado Cash" }}
         imagePosition="right"
       />
       <TechnologyHeroSection 

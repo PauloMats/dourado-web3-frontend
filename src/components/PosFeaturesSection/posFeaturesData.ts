@@ -3,7 +3,7 @@ export const posFeaturesData = {
 
   features: [
     {
-      imageSrc: '/img/pos-colaboradores.png', // adicionar imagem posteriormente (Figma)
+      imageSrc: '/img/bdm-pos-img1.png',
       imageAlt: 'Tela de gerenciamento de colaboradores do BDM POS',
       descriptionPoints: [
         'Gerencie sua equipe no próprio sistema do POS',
@@ -11,7 +11,7 @@ export const posFeaturesData = {
       ],
     },
     {
-      imageSrc: '/img/pos-ponto-de-venda.png', // adicionar imagem posteriormente (Figma)
+      imageSrc: '/img/bdm-pos-img2.png',
       imageAlt: 'Tela de ponto de venda do BDM POS',
       descriptionPoints: [
         'Gerencie facilmente todas as entradas e saídas',
@@ -20,14 +20,14 @@ export const posFeaturesData = {
       ],
     },
     {
-      imageSrc: '/img/pos-cadastro.png', // adicionar imagem posteriormente (Figma)
+      imageSrc: '/img/bdm-pos-img3.png',
       imageAlt: 'Tela de cadastro de colaborador no BDM POS',
       descriptionPoints: [
         'Adicione, edite ou remova permissões de seus colaboradores de maneira rápida e simplificada.',
       ],
     },
     {
-      imageSrc: '/img/pos-comprovante.png', // adicionar imagem posteriormente (Figma)
+      imageSrc: '/img/bdm-pos-img4.png',
       imageAlt: 'Tela de comprovante de transferência do BDM POS',
       descriptionPoints: [
         'Baixe ou envie comprovantes por email',

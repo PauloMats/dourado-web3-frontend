@@ -14,7 +14,7 @@ export default function BdmPosPage() {
           text: "Faça e Receba pagamentos de BDM Digital. Aumente a visibilidade do seu negócio para milhares de usuários com o BDMap. Gestão de funcionários. Controle de lucros e despesas. Diversos Benefícios em uma única plataforma.",
           buttonText: "Saiba mais"
         }}
-        imageData={{ src: "/img/pos-page1.png", alt: "Blockchain Dourado Cash" }}
+        imageData={{ src: "/img/bdm-pay-hero.png", alt: "Blockchain Dourado Cash" }}
         imagePosition="right"
       />
       <MobileFeaturesSection data={mobileFeaturesPay} />
