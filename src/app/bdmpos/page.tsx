@@ -14,7 +14,7 @@ export default function BdmPosPage() {
             <TechnologyHeroSection 
         cardData={{
           title: "BDM POS",
-          text: "<li>Faça e Receba pagamentos de BDM Digital.</li> <li>Aumente a visibilidade do seu negócio para milhares de usuários com o BDMap.</li><li>Gestão de funcionários.</li><li>Controle de lucros e despesas.</li><li>Diversos Benefícios em uma única plataforma.</li>",
+          text: "Faça e Receba pagamentos de BDM Digital.  Aumente a visibilidade do seu negócio para milhares de usuários com o BDMap. Gestão de funcionários. Controle de lucros e despesas. Diversos Benefícios em uma única plataforma. ",
           buttonText: "Saiba mais"
         }}
         imageData={{ src: "/img/pos-page1.png", alt: "Blockchain Dourado Cash" }}

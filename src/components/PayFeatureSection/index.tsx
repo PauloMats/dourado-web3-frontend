@@ -23,35 +23,34 @@ const PayFeatureSection: React.FC<PayFeatureSectionProps> = ({ data }) => {
   return (
     <SectionWrapper>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Usamos um container com position: relative para ancorar os elementos absolutos */}
         <LayoutContainer>
           
           {/* Texto/Logo superior direito */}
           <Image
             src={data.topText.src}
             alt={data.topText.alt}
-            width={200}
-            height={60}
+            width={400}
+            height={90}
             className="absolute top-0 right-0"
           />
 
           {/* Container para os cartões sobrepostos */}
-          <div className="relative w-full max-w-lg h-auto">
+          <div className="ml-22 relative w-full max-w-lg h-auto">
             {/* Cartão de fundo */}
             <Image
               src={data.backgroundCard.src}
               alt={data.backgroundCard.alt}
-              width={500}
-              height={300}
+              width={400}
+              height={200}
               className="w-full h-auto"
             />
             {/* Cartão da frente, posicionado absolutamente */}
-            <div className="absolute top-1/4 -left-1/4 w-full h-auto">
+            <div className="ml-18 absolute top-1/4 -left-1/4 w-full h-auto">
               <Image
                 src={data.foregroundCard.src}
                 alt={data.foregroundCard.alt}
-                width={500}
-                height={300}
+                width={400}
+                height={200}
                 className="w-full h-auto shadow-2xl"
               />
             </div>

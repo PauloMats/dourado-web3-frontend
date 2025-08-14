@@ -4,12 +4,11 @@ import { colors } from '@/assets/scss/colors';
 
 // Wrapper principal da seção
 export const SectionWrapper = styled.section`
-  background-color: ${colors.primary.bdm7}; /* #1B1F28 */
+  background-color: ${colors.primary.bdm9}; 
   padding: ${pxToRem(120)} 0;
   position: relative;
   overflow: hidden;
 
-  /* Efeito de gradiente no fundo para dar profundidade */
   &::before {
     content: '';
     position: absolute;

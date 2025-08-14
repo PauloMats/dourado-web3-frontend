@@ -10,17 +10,17 @@ export const mobileFeaturesData = {
     {
       imageSrc: '/img/bdm-pos-smart2.png',
       imageAlt: 'Tela de recebimento de pagamento do BDM Digital POS',
-      description: 'Sistema completo: receba diversos tokens, faça recargas e consulte o saldo de seu cartão BDM',
+      description: 'Recebimento de pagamentos com QR Code',
     },
     {
       imageSrc: '/img/bdm-pos-smart3.png',
       imageAlt: 'Tela de leitura de QR Code do BDM Digital POS',
-      description: 'Sistema completo: receba diversos tokens, faça recargas e consulte o saldo de seu cartão BDM',
+      description: 'Leitura de QR Code para pagamentos',
     },
     {
       imageSrc: '/img/bdm-pos-smart4.png',
       imageAlt: 'Tela de transação realizada com sucesso no BDM Digital POS',
-      description: 'Sistema completo: receba diversos tokens, faça recargas e consulte o saldo de seu cartão BDM',
+      description: 'Sistema simples e intuitivo, salve ou compartilhe o comprovante da transação.',
     },
   ],
 };

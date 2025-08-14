@@ -20,7 +20,7 @@ const pageData = {
       subtitle: "Se você tem um projeto web3, está com o custo de nossos serviços de design, desenvolvimento e marketing.",
       button: { text: "Conhecer agora", href: "/servicos" }
     },
-    image: { src: "/img/about-hero-phone.png", alt: "Dourado Exchange App" }
+    image: { src: "/img/dourado-about-hero.png", alt: "Dourado Exchange App" }
   },
 
   // 2. Dados para a seção "Branding & Design"
@@ -33,9 +33,6 @@ const pageData = {
     },
     images: [
       { src: '/img/branding-img-1.png', alt: 'Imagem de Branding 1' },
-      { src: '/img/branding-img-2.png', alt: 'Imagem de Branding 2' },
-      { src: '/img/branding-img-3.png', alt: 'Imagem de Branding 3' },
-      { src: '/img/branding-img-4.png', alt: 'Imagem de Branding 4' },
     ]
   },
 
@@ -49,9 +46,6 @@ const pageData = {
     },
     images: [
       { src: '/img/dev-image-1.png', alt: 'Imagem de Desenvolvimento 1' },
-      { src: '/img/dev-image-2.png', alt: 'Imagem de Desenvolvimento 2' },
-      { src: '/img/dev-image-3.png', alt: 'Imagem de Desenvolvimento 3' },
-      { src: '/img/dev-image-4.png', alt: 'Imagem de Desenvolvimento 4' },
     ]
   },
 
@@ -88,8 +82,8 @@ const AboutUsPage: React.FC = () => {
           buttonText: pageData.hero.infoBlock.button.text,
         }}
         imageData={pageData.hero.image}
-        withBackground // Ativa o background para a primeira seção
-        imagePosition="right" // Imagem na direita
+        withBackground 
+        imagePosition="right" 
       />
 
       {/* 2. Branding & Design Section: Imagens na esquerda, InfoBlock na direita */}
