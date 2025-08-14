@@ -9,7 +9,7 @@ import ContactForm from '@/components/ContactForm';
 import { InfoBlockProps } from '@/components/InfoBlock/typo';
 
 const SectionWrapper = styled.section`
-  background-color: ${colors.primary.bdm7}; /* #1B1F28 */
+  background-color: ${colors.primary.bdm9}; 
   padding: ${pxToRem(100)} 0;
 `;
 
