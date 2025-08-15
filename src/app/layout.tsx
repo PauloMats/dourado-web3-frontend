@@ -30,13 +30,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        <Header />
-        <main>
-          <StyledComponentsRegistry>
-          {children}
-          </StyledComponentsRegistry>
-        </main>
-       <Footer />
+        <StyledComponentsRegistry> 
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
