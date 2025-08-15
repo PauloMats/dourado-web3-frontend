@@ -32,7 +32,7 @@ const pageData = {
       button: { text: "Learn More", href: "/branding" }
     },
     images: [
-      { src: '/img/branding-img-1.png', alt: 'Imagem de Branding 1' },
+      { src: '/img/Negocios1.png', alt: 'Imagem de Branding 1' },
     ]
   },
 
