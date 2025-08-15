@@ -26,7 +26,7 @@ const pageData = {
   // 2. Dados para a seção "Branding & Design"
   branding: {
     infoBlock: {
-      preTitle: "BD - Content",
+      preTitle: "PLANEJAMENTO",
       mainTitle: "Branding & Design",
       subtitle: "Trabalhamos com você para criar uma identidade de marca forte e memorável que ressoe com seu público-alvo. Desde o design do logotipo até a criação de materiais de marketing, garantimos que sua marca tenha uma presença online profissional e memorável.",
       button: { text: "Learn More", href: "/branding" }
@@ -45,7 +45,7 @@ const pageData = {
       button: { text: "Learn More", href: "/desenvolvimento" }
     },
     images: [
-      { src: '/img/Negocios1.png', alt: 'Imagem de Desenvolvimento 1' },
+      { src: '/img/desenvolvimento1.jpg', alt: 'Imagem de Desenvolvimento 1' },
     ]
   },
 

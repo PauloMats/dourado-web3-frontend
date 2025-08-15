@@ -3,7 +3,7 @@ import { pxToRem } from '@/utils/utils';
 import { colors } from '@/assets/scss/colors';
 
 export const SectionWrapper = styled.section`
-  background-color: ${colors.primary.bdm9}; /* Preto */
+  background-color: ${colors.primary.bdm5}; /* Preto */
   padding: ${pxToRem(100)} 0;
 `;
 
