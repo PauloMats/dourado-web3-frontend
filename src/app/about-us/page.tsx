@@ -45,7 +45,7 @@ const pageData = {
       button: { text: "Learn More", href: "/desenvolvimento" }
     },
     images: [
-      { src: '/img/dev-image-1.png', alt: 'Imagem de Desenvolvimento 1' },
+      { src: '/img/Negocios1.png', alt: 'Imagem de Desenvolvimento 1' },
     ]
   },
 

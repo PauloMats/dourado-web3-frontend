@@ -13,7 +13,7 @@ const scrollRight = keyframes`
 `;
 
 export const SectionWrapper = styled.section`
-  background-color: ${colors.primary.bdm7};
+  background-color: ${colors.primary.bdm9};
   padding: ${pxToRem(80)} 0;
   overflow: hidden;
 `;

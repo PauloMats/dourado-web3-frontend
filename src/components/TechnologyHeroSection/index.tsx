@@ -45,7 +45,7 @@ const TechnologyHeroSection = ({
               width={700}
               height={500}
               quality={100}
-              className="w-full h-auto"
+              className="w-3/4 h-auto"
             />
           </div>
 
